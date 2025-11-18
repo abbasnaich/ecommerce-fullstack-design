@@ -275,8 +275,6 @@ def logout(current_user):
     # Since we're using JWT, logout is handled client-side by removing the token
     return jsonify({'message': 'Logout successful'})
 
-# API Endpoints for CRUD Operations
-
 # CREATE - Add new product
 @app.route('/api/products', methods=['POST'])
 def create_product():
@@ -298,7 +296,7 @@ def create_product():
     except Exception as e:
         return jsonify({'error': str(e)}), 400
 
-# READ - Get all products
+# Get all products
 @app.route('/api/products', methods=['GET'])
 def get_products():
     try:
@@ -329,7 +327,7 @@ def get_products():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# READ - Get single product
+#Get single product
 @app.route('/api/products/<int:product_id>', methods=['GET'])
 def get_product(product_id):
     try:
@@ -347,7 +345,7 @@ def get_product(product_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# UPDATE - Update product
+# Update product
 @app.route('/api/products/<int:product_id>', methods=['PUT'])
 def update_product(product_id):
     try:
@@ -372,7 +370,7 @@ def update_product(product_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 400
 
-# DELETE - Delete product
+#Delete product
 @app.route('/api/products/<int:product_id>', methods=['DELETE'])
 def delete_product(product_id):
     try:
@@ -612,4 +610,5 @@ def update_cart(current_user):
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
+
     app.run(debug=True)
